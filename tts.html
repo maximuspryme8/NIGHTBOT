@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightbot TTS</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <script>
+      // This function will read the text passed to it
+      function speakText(text) {
+        if (text) {
+          responsiveVoice.speak(text, "UK English Male"); // You can change the voice to any other supported by ResponsiveVoice
+        }
+      }
+
+      // Get the query parameter from the URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const textToSpeak = urlParams.get('text'); // Get the text parameter
+
+      if (textToSpeak) {
+        speakText(textToSpeak); // Call the TTS function to speak the text
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Nightbot TTS</h2>
+    <div id="text-container">Waiting for command...</div>
+  </body>
+</html>
